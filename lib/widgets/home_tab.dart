@@ -67,7 +67,7 @@ class HomeTab extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () async {
-                        final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8001/');
+                        final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8000/');
                         if (await canLaunchUrl(url)) {
                           await launchUrl(url, mode: LaunchMode.externalApplication);
                         }
@@ -339,7 +339,7 @@ class HomeTab extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () async {
-                        final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8001/');
+                        final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8000/');
                         if (await canLaunchUrl(url)) {
                           await launchUrl(url, mode: LaunchMode.externalApplication);
                         }
@@ -363,7 +363,7 @@ class HomeTab extends StatelessWidget {
                     const SizedBox(width: 16),
                     ElevatedButton(
                       onPressed: () async {
-                        final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8001/');
+                        final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8000/');
                         if (await canLaunchUrl(url)) {
                           await launchUrl(url, mode: LaunchMode.externalApplication);
                         }
@@ -611,7 +611,7 @@ class HomeTab extends StatelessWidget {
           const SizedBox(height: 24),
           ElevatedButton(
             onPressed: () async {
-              final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8001/');
+              final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8000/');
               if (await canLaunchUrl(url)) {
                 await launchUrl(url, mode: LaunchMode.externalApplication);
               }

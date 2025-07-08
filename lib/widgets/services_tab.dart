@@ -222,7 +222,7 @@ class ServiceCard extends StatelessWidget {
                       const Spacer(),
                       GestureDetector(
                         onTap: () async {
-                          final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8001/');
+                          final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8000/');
                           if (await canLaunchUrl(url)) {
                             await launchUrl(url, mode: LaunchMode.externalApplication);
                           }
