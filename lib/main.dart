@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'widgets/home_tab.dart';
 import 'widgets/services_tab.dart';
 import 'widgets/analytics_tab.dart';
@@ -16,23 +17,12 @@ class SkyFixApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'SkyFix - Drone Vehicle Repair',
-      theme: ThemeData.dark().copyWith(
+      theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF60A5FA),
-          brightness: Brightness.dark,
-        ).copyWith(
-          background: const Color(0xFF121212),
-          surface: const Color(0xFF1E1E1E),
-          primary: const Color(0xFF60A5FA),
-        ),
-        scaffoldBackgroundColor: const Color(0xFF121212),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF1E1E1E),
-          foregroundColor: Colors.white,
-          elevation: 1,
+          seedColor: const Color(0xFF2563EB),
+          brightness: Brightness.light,
         ),
         useMaterial3: true,
-        fontFamily: 'Inter',
       ),
       home: const SkyFixHomePage(),
     );
@@ -69,7 +59,6 @@ class _SkyFixHomePageState extends State<SkyFixHomePage> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
               ),
             ),
             const SizedBox(width: 48),
@@ -80,19 +69,20 @@ class _SkyFixHomePageState extends State<SkyFixHomePage> {
             _buildNavItem('Analytics', 2),
           ],
         ),
-        backgroundColor: const Color(0xFF1E1E1E),
-        foregroundColor: Colors.white,
+        backgroundColor: Colors.white,
         elevation: 1,
         actions: [
           TextButton(
             onPressed: _showLoginPanel,
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.white,
-            ),
             child: const Text('Login'),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () async {
+              final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8000/');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url, mode: LaunchMode.externalApplication);
+              }
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Theme.of(context).colorScheme.primary,
               foregroundColor: Colors.white,
@@ -166,7 +156,7 @@ class _SkyFixHomePageState extends State<SkyFixHomePage> {
       child: TextButton(
         onPressed: _scrollToWhySkyFix,
         style: TextButton.styleFrom(
-          foregroundColor: Colors.grey[300],
+          foregroundColor: Colors.grey[600],
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         child: Text(
@@ -193,7 +183,7 @@ class _SkyFixHomePageState extends State<SkyFixHomePage> {
         style: TextButton.styleFrom(
           foregroundColor: isSelected 
               ? Theme.of(context).colorScheme.primary 
-              : Colors.grey[300],
+              : Colors.grey[600],
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         child: Text(

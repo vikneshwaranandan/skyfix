@@ -37,6 +37,9 @@ dependencies:
   
   # Icon packages for enhanced UI
   font_awesome_flutter: ^10.7.0
+  
+  # URL launcher for opening external links
+  url_launcher: ^6.2.2
 
 dev_dependencies:
   flutter_test:

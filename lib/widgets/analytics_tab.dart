@@ -18,14 +18,14 @@ class AnalyticsTab extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
               const Spacer(),
               // User Profile Section
               Row(
                 children: [
-                  const Icon(Icons.notifications_outlined, size: 24, color: Colors.white),
+                  const Icon(Icons.notifications_outlined, size: 24),
                   const SizedBox(width: 16),
                   const CircleAvatar(
                     radius: 20,
@@ -33,8 +33,8 @@ class AnalyticsTab extends StatelessWidget {
                     child: Text('J', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                   ),
                   const SizedBox(width: 8),
-                  const Text('Jordan', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white)),
-                  const Icon(Icons.keyboard_arrow_down, color: Colors.white),
+                  const Text('Jordan', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                  const Icon(Icons.keyboard_arrow_down),
                 ],
               ),
             ],
@@ -77,7 +77,7 @@ class AnalyticsTab extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              color: const Color(0xFF2D3748),
+              color: Colors.grey[100],
               borderRadius: BorderRadius.circular(16),
             ),
             child: Column(
@@ -87,28 +87,28 @@ class AnalyticsTab extends StatelessWidget {
                   children: [
                     const Text(
                       'Statistics',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     const Spacer(),
                     Row(
                       children: [
                         _buildLegendItem('Pending', Colors.orange),
                         const SizedBox(width: 16),
-                        _buildLegendItem('Complete', Colors.grey[400]!),
+                        _buildLegendItem('Complete', Colors.grey[600]!),
                       ],
                     ),
                     const SizedBox(width: 16),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF4A5568),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.grey[600]!),
+                        border: Border.all(color: Colors.grey[300]!),
                       ),
                       child: const Row(
                         children: [
-                          Text('Last 7 days', style: TextStyle(color: Colors.white)),
-                          Icon(Icons.keyboard_arrow_down, size: 16, color: Colors.white),
+                          Text('Last 7 days'),
+                          Icon(Icons.keyboard_arrow_down, size: 16),
                         ],
                       ),
                     ),
@@ -243,9 +243,9 @@ class AnalyticsTab extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF2D3748),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Colors.grey[600]!),
+                    border: Border.all(color: Colors.grey[200]!),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -254,10 +254,10 @@ class AnalyticsTab extends StatelessWidget {
                         children: [
                           const Text(
                             'Recent Activity',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           const Spacer(),
-                          Text('View all', style: TextStyle(color: Colors.grey[400])),
+                          const Text('View all', style: TextStyle(color: Colors.grey)),
                         ],
                       ),
                       const SizedBox(height: 16),
@@ -286,9 +286,9 @@ class AnalyticsTab extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF2D3748),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Colors.grey[600]!),
+                    border: Border.all(color: Colors.grey[200]!),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -297,12 +297,12 @@ class AnalyticsTab extends StatelessWidget {
                         children: [
                           const Text(
                             'Quick Dispatch',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           const Spacer(),
-                          const Icon(Icons.arrow_back_ios, size: 16, color: Colors.white),
+                          const Icon(Icons.arrow_back_ios, size: 16),
                           const SizedBox(width: 8),
-                          const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.white),
+                          const Icon(Icons.arrow_forward_ios, size: 16),
                         ],
                       ),
                       const SizedBox(height: 24),
@@ -312,10 +312,10 @@ class AnalyticsTab extends StatelessWidget {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.grey[600],
+                              color: Colors.grey[200],
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: const Icon(Icons.add, color: Colors.white),
+                            child: const Icon(Icons.add, color: Colors.grey),
                           ),
                           const SizedBox(width: 16),
                           _buildTeamMember('James\nCarter', 'J', Colors.pink),
@@ -328,7 +328,7 @@ class AnalyticsTab extends StatelessWidget {
                       const SizedBox(height: 16),
                       Row(
                         children: [
-                          Text('Add\nNew', style: TextStyle(fontSize: 12, color: Colors.grey[400])),
+                          const Text('Add\nNew', style: TextStyle(fontSize: 12, color: Colors.grey)),
                           const SizedBox(width: 16),
                           _buildTeamMember('Emily\nJohnson', 'E', Colors.purple),
                         ],
@@ -349,41 +349,41 @@ class AnalyticsTab extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: const Color(0xFF2D3748),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.grey[600]!),
+        border: Border.all(color: Colors.grey[200]!),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white)),
+              Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
               const Spacer(),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.grey[600],
+                  color: Colors.grey[100],
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Text(percentage, style: const TextStyle(fontSize: 12, color: Colors.white)),
+                child: Text(percentage, style: const TextStyle(fontSize: 12)),
               ),
             ],
           ),
           const SizedBox(height: 16),
           Text(
             value,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           if (subtitle1 != null) ...[
             const SizedBox(height: 12),
-            Text('Total', style: TextStyle(color: Colors.grey[400])),
+            Text('Total', style: TextStyle(color: Colors.grey[600])),
             const SizedBox(height: 4),
-            Text(subtitle1, style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
+            Text(subtitle1, style: const TextStyle(fontWeight: FontWeight.w600)),
             const SizedBox(height: 8),
-            Text(subtitle2!, style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
+            Text(subtitle2!, style: const TextStyle(fontWeight: FontWeight.w600)),
             const SizedBox(height: 8),
-            Text(subtitle3!, style: TextStyle(color: Colors.grey[400])),
+            Text(subtitle3!, style: TextStyle(color: Colors.grey[600])),
           ],
         ],
       ),
@@ -402,7 +402,7 @@ class AnalyticsTab extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 4),
-        Text(label, style: const TextStyle(fontSize: 12, color: Colors.white)),
+        Text(label, style: const TextStyle(fontSize: 12)),
       ],
     );
   }
@@ -440,7 +440,7 @@ class AnalyticsTab extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(label, style: const TextStyle(fontSize: 12, color: Colors.white)),
+          Text(label, style: const TextStyle(fontSize: 12)),
         ],
       ),
     );
@@ -488,22 +488,22 @@ class AnalyticsTab extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.grey[600],
+              color: Colors.grey[100],
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(icon, size: 16, color: Colors.white),
+            child: Icon(icon, size: 16, color: Colors.grey[600]),
           ),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
-                Text(subtitle, style: TextStyle(color: Colors.grey[400], fontSize: 12)),
+                Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
+                Text(subtitle, style: TextStyle(color: Colors.grey[600], fontSize: 12)),
               ],
             ),
           ),
-          Text(amount, style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
+          Text(amount, style: const TextStyle(fontWeight: FontWeight.w600)),
         ],
       ),
     );
@@ -513,13 +513,13 @@ class AnalyticsTab extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: isActive ? Colors.orange : Colors.transparent,
+        color: isActive ? Colors.black : Colors.transparent,
         borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
         label,
         style: TextStyle(
-          color: isActive ? Colors.white : Colors.grey[400],
+          color: isActive ? Colors.white : Colors.grey[600],
           fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
         ),
       ),
@@ -535,7 +535,7 @@ class AnalyticsTab extends StatelessWidget {
           child: Text(initial, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         ),
         const SizedBox(height: 4),
-        Text(name, style: const TextStyle(fontSize: 10, color: Colors.white), textAlign: TextAlign.center),
+        Text(name, style: const TextStyle(fontSize: 10), textAlign: TextAlign.center),
       ],
     );
   }

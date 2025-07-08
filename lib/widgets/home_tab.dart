@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeTab extends StatelessWidget {
   final ScrollController? scrollController;
@@ -20,8 +21,8 @@ class HomeTab extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFF1E293B),
-                  const Color(0xFF334155),
+                  const Color(0xFF1E3A8A),
+                  const Color(0xFF3B82F6),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -65,7 +66,12 @@ class HomeTab extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8001/');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url, mode: LaunchMode.externalApplication);
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orange,
                         foregroundColor: Colors.white,
@@ -110,7 +116,7 @@ class HomeTab extends StatelessWidget {
           // What is SkyFix Section
           Container(
             padding: const EdgeInsets.all(80),
-            color: const Color(0xFF121212),
+            color: Colors.white,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -119,15 +125,15 @@ class HomeTab extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(height: 24),
-                Text(
+                const Text(
                   'SkyFix is a drone-powered vehicle repair and roadside assistance service that brings repair tools and parts directly to your car — wherever you are. Whether you\'re in the city or off the grid, our intelligent repair drones get you moving again without the hassle of calling a tow truck or waiting for hours.',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.grey[300],
+                    color: Colors.grey,
                     height: 1.6,
                   ),
                   textAlign: TextAlign.center,
@@ -139,7 +145,7 @@ class HomeTab extends StatelessWidget {
           // How It Works Section
           Container(
             padding: const EdgeInsets.all(80),
-            color: const Color(0xFF1E1E1E),
+            color: Colors.grey[50],
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -148,7 +154,7 @@ class HomeTab extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(height: 48),
@@ -170,7 +176,7 @@ class HomeTab extends StatelessWidget {
           // Specialized Drones Section
           Container(
             padding: const EdgeInsets.all(80),
-            color: const Color(0xFF121212),
+            color: Colors.white,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -179,7 +185,7 @@ class HomeTab extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(height: 48),
@@ -249,7 +255,7 @@ class HomeTab extends StatelessWidget {
           // Subscription Plans Section
           Container(
             padding: const EdgeInsets.all(80),
-            color: const Color(0xFF1E1E1E),
+            color: Colors.white,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -258,15 +264,15 @@ class HomeTab extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(height: 16),
-                Text(
+                const Text(
                   'Choose the right plan for your driving habits.',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.grey[400],
+                    color: Colors.grey,
                   ),
                 ),
                 const SizedBox(height: 48),
@@ -301,8 +307,8 @@ class HomeTab extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFF1E293B),
-                  const Color(0xFF334155),
+                  const Color(0xFF1E3A8A),
+                  const Color(0xFF3B82F6),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -332,7 +338,12 @@ class HomeTab extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8001/');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url, mode: LaunchMode.externalApplication);
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orange,
                         foregroundColor: Colors.white,
@@ -351,7 +362,12 @@ class HomeTab extends StatelessWidget {
                     ),
                     const SizedBox(width: 16),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8001/');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url, mode: LaunchMode.externalApplication);
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orange,
                         foregroundColor: Colors.white,
@@ -396,7 +412,7 @@ class HomeTab extends StatelessWidget {
             width: 80,
             height: 80,
             decoration: BoxDecoration(
-              color: const Color(0xFF60A5FA),
+              color: Colors.blue[600],
               shape: BoxShape.circle,
             ),
             child: Icon(icon, color: Colors.white, size: 40),
@@ -416,15 +432,15 @@ class HomeTab extends StatelessWidget {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           const SizedBox(height: 8),
           Text(
             description,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
-              color: Colors.grey[300],
+              color: Colors.grey,
             ),
             textAlign: TextAlign.center,
           ),
@@ -437,11 +453,11 @@ class HomeTab extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: const Color(0xFF2D3748),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withOpacity(0.1),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -457,16 +473,16 @@ class HomeTab extends StatelessWidget {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
             ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
           Text(
             description,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
-              color: Colors.grey[300],
+              color: Colors.grey,
             ),
             textAlign: TextAlign.center,
           ),
@@ -518,15 +534,15 @@ class HomeTab extends StatelessWidget {
       width: 300,
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
-        color: isPopular ? const Color(0xFF60A5FA) : const Color(0xFF2D3748),
+        color: isPopular ? Colors.blue[600] : Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: isPopular ? const Color(0xFF60A5FA) : Colors.grey[600]!,
+          color: isPopular ? Colors.blue[600]! : Colors.grey[300]!,
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withOpacity(0.1),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -554,10 +570,10 @@ class HomeTab extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: isPopular ? Colors.white : Colors.black,
             ),
           ),
           const SizedBox(height: 8),
@@ -566,7 +582,7 @@ class HomeTab extends StatelessWidget {
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
-              color: isPopular ? Colors.white : const Color(0xFF60A5FA),
+              color: isPopular ? Colors.white : Colors.blue[600],
             ),
           ),
           const SizedBox(height: 24),
@@ -585,7 +601,7 @@ class HomeTab extends StatelessWidget {
                     feature,
                     style: TextStyle(
                       fontSize: 14,
-                      color: isPopular ? Colors.white70 : Colors.grey[300],
+                      color: isPopular ? Colors.white70 : Colors.grey[600],
                     ),
                   ),
                 ),
@@ -594,9 +610,14 @@ class HomeTab extends StatelessWidget {
           )),
           const SizedBox(height: 24),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () async {
+              final url = Uri.parse('http://skyfix.dev.fyre.ibm.com:8001/');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url, mode: LaunchMode.externalApplication);
+              }
+            },
             style: ElevatedButton.styleFrom(
-              backgroundColor: isPopular ? Colors.orange : const Color(0xFF60A5FA),
+              backgroundColor: isPopular ? Colors.orange : Colors.blue[600],
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(
                 horizontal: 32,
