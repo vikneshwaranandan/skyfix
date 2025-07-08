@@ -6,54 +6,96 @@ class ServicesTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(40),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             'Our Services',
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 36,
               fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 32),
           GridView.count(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            crossAxisCount: 4,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-            childAspectRatio: 1.8,
+            crossAxisCount: 5,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20,
+            childAspectRatio: 0.85,
             children: const [
               ServiceCard(
-                title: 'Emergency Repairs',
-                description: 'Quick fixes for breakdowns and urgent issues',
-                icon: Icons.emergency,
-                price: '\$99',
-                backgroundImage: null,
-                gradientColors: [Colors.red, Colors.redAccent],
+                title: 'Break Down\nassistance',
+                price: '\$89',
+                icon: Icons.car_crash,
+                color: Colors.blue,
+                imageIcon: Icons.emergency,
               ),
               ServiceCard(
-                title: 'Preventive Maintenance',
-                description: 'Regular checkups to prevent future issues',
-                icon: Icons.build_circle,
+                title: 'Minor Repair\n(Single Panel)',
                 price: '\$149',
-                backgroundImage: 'assets/images/emergency.jpg',
+                icon: Icons.build_circle,
+                color: Colors.red,
+                imageIcon: Icons.car_repair,
               ),
               ServiceCard(
-                title: 'Diagnostic Services',
-                description: 'Comprehensive vehicle health assessment',
-                icon: Icons.analytics,
+                title: 'Periodical\nMaintenance',
+                price: '\$199',
+                icon: Icons.settings,
+                color: Colors.orange,
+                imageIcon: Icons.build,
+              ),
+              ServiceCard(
+                title: 'Quick General\nCheckup',
                 price: '\$79',
-                backgroundImage: 'assets/images/diagnostics.jpg',
+                icon: Icons.checklist,
+                color: Colors.green,
+                imageIcon: Icons.assignment_turned_in,
               ),
               ServiceCard(
-                title: 'Fleet Management',
-                description: 'Complete fleet monitoring and maintenance',
-                icon: Icons.dark_mode,
-                price: 'Custom',
-                backgroundImage: 'assets/images/fleet.jpg',
+                title: 'HVAC Operation',
+                price: '\$129',
+                icon: Icons.ac_unit,
+                color: Colors.purple,
+                imageIcon: Icons.air,
+              ),
+              ServiceCard(
+                title: 'Interior Treatment',
+                price: '\$99',
+                icon: Icons.chair,
+                color: Colors.brown,
+                imageIcon: Icons.weekend,
+              ),
+              ServiceCard(
+                title: 'Major Repair\n(Single Panel)',
+                price: '\$299',
+                icon: Icons.construction,
+                color: Colors.indigo,
+                imageIcon: Icons.engineering,
+              ),
+              ServiceCard(
+                title: 'Full Body Paint',
+                price: '\$899',
+                icon: Icons.palette,
+                color: Colors.teal,
+                imageIcon: Icons.brush,
+              ),
+              ServiceCard(
+                title: 'Vehicle Dynamic\nCheck',
+                price: '\$159',
+                icon: Icons.speed,
+                color: Colors.cyan,
+                imageIcon: Icons.tune,
+              ),
+              ServiceCard(
+                title: 'Car Washing',
+                price: '\$29',
+                icon: Icons.local_car_wash,
+                color: Colors.lightBlue,
+                imageIcon: Icons.water_drop,
               ),
             ],
           ),
@@ -65,126 +107,143 @@ class ServicesTab extends StatelessWidget {
 
 class ServiceCard extends StatelessWidget {
   final String title;
-  final String description;
-  final IconData icon;
   final String price;
-  final String? backgroundImage;
-  final List<Color>? gradientColors;
+  final IconData icon;
+  final Color color;
+  final IconData imageIcon;
 
   const ServiceCard({
     super.key,
     required this.title,
-    required this.description,
-    required this.icon,
     required this.price,
-    this.backgroundImage,
-    this.gradientColors,
+    required this.icon,
+    required this.color,
+    required this.imageIcon,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        color: const Color(0xFF2D3748),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withOpacity(0.3),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
         ],
       ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: Stack(
-          children: [
-            // Background Image or Gradient
-            Positioned.fill(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: gradientColors != null
-                      ? LinearGradient(
-                          colors: gradientColors!,
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        )
-                      : null,
-                  image: backgroundImage != null
-                      ? DecorationImage(
-                          image: AssetImage(backgroundImage!),
-                          fit: BoxFit.cover,
-                        )
-                      : null,
-                ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Image Section
+          Container(
+            height: 120,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.15),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
               ),
             ),
-            // Overlay for better text readability
-            Positioned.fill(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.4),
+            child: Stack(
+              children: [
+                // Background pattern
+                Positioned.fill(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          color.withOpacity(0.3),
+                          color.withOpacity(0.1),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        topRight: Radius.circular(16),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+                // Main icon
+                Center(
+                  child: Icon(
+                    imageIcon,
+                    size: 48,
+                    color: color,
+                  ),
+                ),
+                // Small service icon in top-right
+                Positioned(
+                  top: 12,
+                  right: 12,
+                  child: Icon(
+                    icon,
+                    size: 20,
+                    color: color.withOpacity(0.7),
+                  ),
+                ),
+              ],
             ),
-            // Content
-            Padding(
+          ),
+          // Content Section
+          Expanded(
+            child: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Icon(
-                        icon,
-                        size: 24,
-                        color: Colors.white,
-                      ),
-                      const Spacer(),
-                      Text(
-                        price,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
                   Text(
                     title,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    description,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white.withOpacity(0.9),
+                      height: 1.2,
                     ),
                   ),
                   const Spacer(),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Theme.of(context).colorScheme.primary,
-                        padding: const EdgeInsets.symmetric(vertical: 8),
+                  Row(
+                    children: [
+                      Text(
+                        price,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: color,
+                        ),
                       ),
-                      child: const Text('Book Now', style: TextStyle(fontSize: 12)),
-                    ),
+                      const Spacer(),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: color,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Text(
+                          'Book',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
