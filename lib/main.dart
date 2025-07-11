@@ -5,6 +5,7 @@ import 'widgets/home_tab.dart';
 import 'widgets/services_tab.dart';
 import 'widgets/analytics_tab.dart';
 import 'widgets/login_panel.dart';
+import 'widgets/about_us.dart';
 
 void main() {
   runApp(const SkyFixApp());
@@ -66,7 +67,8 @@ class _SkyFixHomePageState extends State<SkyFixHomePage> {
             _buildNavItem('Home', 0),
             _buildScrollNavItem('Why SkyFix'),
             _buildNavItem('Services', 1),
-            _buildNavItem('Analytics', 2),
+            _buildNavItem('About Us', 2),
+            _buildNavItem('Analytics', 3),
           ],
         ),
         backgroundColor: Colors.white,
@@ -99,6 +101,7 @@ class _SkyFixHomePageState extends State<SkyFixHomePage> {
             children: [
               HomeTab(scrollController: _scrollController, whySkyFixKey: _whySkyFixKey),
               const ServicesTab(),
+              const AboutUsPage(),
               const AnalyticsTab(),
             ],
           ),
